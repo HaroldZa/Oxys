@@ -270,7 +270,5 @@ app.init = function () {
 
 $(function () {
   app.init();
-  $('.lazy').lazy({ 
-      threshold: 0,
-  })
+  
 });

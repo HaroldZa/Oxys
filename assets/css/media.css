@@ -964,7 +964,8 @@
         text-align: center;
     }
     .hero__content{
-        padding: 5rem 3rem;
+        padding: 5rem 1rem;
+        margin: 0 auto;
     }
     .hero__content_text{
         width: 100%;
@@ -983,8 +984,9 @@
     }
     .hero .hero__btn{
         position: absolute;
-        top: 230%;
-        right: 30%;
+        top: 220%;
+        right: 33%;
+        z-index: 9;
     }
     .hero__content::after{
         position: absolute;
@@ -1004,6 +1006,9 @@
     .container{
         width: 95%;
         margin: 0 auto;
+    }
+    .hero__content > img{
+        left: 65%;
     }
     .use__block1{
         display: flex;
