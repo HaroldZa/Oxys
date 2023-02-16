@@ -1241,6 +1241,10 @@ ul{
     padding: 0 30px;
 }
 
+.comments .reviews__slider--wrap .bx-controls{
+    padding: 3rem;
+}
+
 .reviews__slider--wrap .bx-pager {
     display: table;
     font-size: 0;

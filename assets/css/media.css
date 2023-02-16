@@ -943,14 +943,14 @@
         transform: rotateZ(-45deg);
         transform-origin: bottom left;
         left: 50%;
-        top: 112% !important;
+        top: 118% !important;
     }
     .work__img_content:after{
         border-radius: 8px 0 0 8px;
         transform: rotateZ(45deg);
         transform-origin: bottom right;
         right: 50%;
-        top: 112% !important;
+        top: 118% !important;
     }
     .work__block:not(:last-child):after,
     .work__block:not(:last-child):before{
@@ -1107,5 +1107,10 @@
     }
     .ingredients__review__text{
         margin-top: -7rem;
+    }
+}
+@media screen and (max-width: 430px) {
+    .ingredients__review_avatar{
+        left: 18%;
     }
 }
