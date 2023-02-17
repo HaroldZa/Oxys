@@ -193,6 +193,7 @@ app.init = function () {
         name: 'time',
         box: '.time__slider',
         wrap: '.time__slider--wrap',
+        preventDefaultSwipeY: true,
         option: {
           xs: {
             infiniteLoop: false,
@@ -204,6 +205,7 @@ app.init = function () {
         name: 'reviews',
         box: '.reviews__slider',
         wrap: '.reviews__slider--wrap',
+        preventDefaultSwipeY: true,
         option: {
           sm1: {
             slideWidth: 600,
@@ -267,6 +269,7 @@ app.init = function () {
     })
   });
 };
+
 
 $(function () {
   app.init();
