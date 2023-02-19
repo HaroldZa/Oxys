@@ -9,12 +9,33 @@
     <meta name="description" content="Rejuvenece tu piel con Oxys">
 
     <link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/style.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/respon.min.css">
 
 </head>
 
 <body>
+
+    <div id="modal">
+        <div class="modal__content">
+            <h2>¿Podemos llamarte?</h2>
+            <p>Queremos brindarte la atención que mereces, por lo que queremos llamarte y brindarte la información que requieras y tomarte el pedido en caso de que así lo requieras
+            </p>
+            <form>
+                <div class="form__block--input" data-svg="woman">
+                    <input type="text" placeholder="Tu nombre">
+                </div>
+                <div class="form__block--input" data-svg="phone">
+                    <input type="tel" placeholder="Tu número de teléfono">
+                </div>
+                <span class="modal_form__price_old"><del>1560Pesos</del></span>
+                <p class="modal_form__price"><b>Precio con descuento:</b> <b class="modal_price">780</b> <span>Pesos</span></p>
+                <a class="hero__btn" href="#">PEDIR QUE ME LLAMEN</a>
+                <p id="continue">Prefiero seguir leyendo sobre el producto para después hacer el pedido</p>
+            </form>
+        </div>
+    </div>
+
     <!-- Hero -->
     <section class="hero">
         <div class="hero__content">
@@ -656,10 +677,26 @@
         </symbol>
     </svg>
 
-
     <script src="assets/js/graphic.js"></script>
     <script src="assets/js/jquery.bxslider.js"></script>
     <script src="assets/js/main.min.js"></script>
+
+    <script>
+        console.log('aaa');
+        $(window).bind('beforeunload', function(){
+  return alert('aaaa')
+});
+    </script>
+    
+    <script>
+        setTimeout(function() {
+            $("#modal").fadeIn(1500);
+        },6000);
+
+        $('#continue').click(function() {
+            $("#modal").fadeOut();
+        })
+    </script>
 </body>
 
 </html>

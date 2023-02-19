@@ -83,6 +83,78 @@ ul{
     font-size: 4.8rem;
     font-weight: 400;
 }
+#modal{
+    display: none;
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 2rem;
+    background: white;
+    box-shadow: 0 5px 15px 0 rgba(75, 65, 78, 0.5);
+    padding: 5rem;
+    z-index: 999;
+    width: min(90%, 65rem);
+}
+.modal__content h2{
+    text-align: center;
+    color: #ce84e1;
+    font-size: 4rem;
+}
+.modal__content p {
+    font-size: 2rem;
+    padding: 2rem 0;
+}
+.modal_form__price{
+    text-align: center;
+}
+.modal_form__price_old{
+    position: absolute;
+    left: 42%;
+    right: 0;
+}
+.modal__content .hero__btn{
+    font-size: 2.4rem;
+}
+.modal_price{
+    font-family: var(--SecondaryFont);
+    font-style: italic;
+    font-weight: 700;
+    font-size: 6rem;
+    color: #ce84e1;
+}
+#continue{
+    text-align: center;
+   font-size: 2rem;
+   font-family: var(--SecondaryFont);
+   color: #ce84e1;
+   font-weight: 700;
+   margin-top: 2rem;
+}
+#continue:hover{
+    color: #bb64d1;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+    #modal{
+        padding: 5rem 2rem;
+    }
+    .modal__content h2{
+        font-size: 2.8rem;
+    }
+    .modal__content p{
+        font-size: 1.6rem;
+    }
+    .modal_price{
+        font-size: 3.5rem;
+    }
+    .modal__content .hero__btn{
+        text-align: center;
+        padding: 2.2rem;
+        font-size: 1.6rem;
+    }
+}
+
 /* Hero */
 .hero{
     position: relative;
