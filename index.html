@@ -37,8 +37,8 @@
     </div>
 
     <!-- Hero -->
-    <section class="hero">
-        <div class="hero__content">
+    <section id="init" class="hero">
+        <div id="init" class="hero__content">
             <img loading="lazy" src="assets/img/product.png" alt="Oxys">
             <div class="hero__content_text">
                 <h2 class="title">Concentrado de la juventud para tu piel</h2>
@@ -531,6 +531,8 @@
         </div>
     </section>
 
+    <button id="btn123" onclick="addClick()">a</button>
+
     <!-- Footer -->
     <footer class="footer">
         <span> © 2023 Copyright. All rights reserved. </span><br>
@@ -682,29 +684,38 @@
     <script src="assets/js/main.min.js"></script>
 
     <script>
-    var cont = 0;
-    window.history.pushState({page: 1}, "", "");
-    window.onpopstate = function(event) {
 
-    if(event){
-        if(cont == 0){
-            cont = 1
-            $("#modal").fadeIn();
-        }else if (cont === 1){
-            cont = 2
-            $("#modal").fadeOut();
-        }else if(cont == 2){
+    if(localStorage.getItem("cont") == 'NaN' || localStorage.getItem("cont") == null){
+        localStorage.setItem("cont", 0);
+        console.log('aqui vale 0');
+    }else if(localStorage.getItem("cont") == 1){
+        localStorage.setItem("cont", 2)
+        $("#modal").fadeIn();
+    }else if(localStorage.getItem("cont") == 2){
+        $("#modal").fadeOut();
+        window.localStorage.clear();
+    }
+
+    window.history.pushState({page: 1}, "", "");
+
+    window.onpopstate = function(event) {
+        if(localStorage.getItem("cont") == 0){
+            localStorage.setItem("cont", 1)
+            window.location.href = "/";
+        }else if(localStorage.getItem("cont") == 2){
+            window.location.href = "/";
+        }else{
             history.back();
         }
     }
-    }
+
     </script>
     
-    <script>
-        
+
+    <script> 
         setTimeout(function() {
             $("#modal").fadeIn(1500);
-        },6000);
+        },30000);
 
         $('#continue').click(function() {
             $("#modal").fadeOut();
