@@ -9,7 +9,7 @@
     <meta name="description" content="Rejuvenece tu piel con Oxys">
 
     <link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.min.css">
     <link rel="stylesheet" href="assets/css/respon.min.css">
 
 </head>
@@ -37,7 +37,7 @@
     </div>
 
     <!-- Hero -->
-    <section id="init" class="hero">
+    <section class="hero">
         <div id="init" class="hero__content">
             <img loading="lazy" src="assets/img/product.png" alt="Oxys">
             <div class="hero__content_text">
@@ -50,7 +50,7 @@
                     <li><b>Devuelve</b> firmeza a la piel</li>
                     <li>El efecto dura <b>mucho tiempo</b></li>
                 </ul>
-                <a id="btn_c" class="hero__btn" href="#">Pedir</a>
+                <a id="click" class="hero__btn" href="#">Pedir</a>
             </div>
         </div>
 
@@ -510,28 +510,26 @@
             </div>
             <div class="form__form">
                 <img loading="lazy" src="assets/img/product.png" alt="producto oxys">
-                <form>
+                <form method="POST" action="order.php" id="form1">
                     <p>Completa el formulario <b>y obtén un 50% de descuento</b></p>
                     <div class="form__block--select">
-                        <select>
+                        <select name="country" id="country">
                             <option value="Mexico">México</option>
                         </select>
                     </div>
                     <div class="form__block--input" data-svg="woman">
-                        <input type="text" placeholder="Tu nombre">
+                        <input type="text" id="name" name="name" placeholder="Tu nombre">
                     </div>
                     <div class="form__block--input" data-svg="phone">
-                        <input type="tel" placeholder="Tu número de teléfono">
+                        <input type="tel" id="cel" name="cel" placeholder="Tu número de teléfono">
                     </div>
                     <span class="form__price_old"><del>1560Pesos</del></span>
                     <p class="form__price"><b>Precio con descuento:</b> <b class="price">780</b> <span>Pesos</span></p>
-                    <a class="hero__btn" href="#">PEDIR CON DESCUENTO</a>
+                    <button class="hero__btn" form="form1" type="submit">PEDIR CON DESCUENTO</button>
                 </form>
             </div>
         </div>
     </section>
-
-    <button id="btn123" onclick="addClick()">a</button>
 
     <!-- Footer -->
     <footer class="footer">
@@ -679,13 +677,47 @@
         </symbol>
     </svg>
 
+    <!-- scripts -->
     <script src="assets/js/graphic.js"></script>
     <script src="assets/js/jquery.bxslider.js"></script>
     <script src="assets/js/main.min.js"></script>
 
     <script>
+       history.pushState(null, "", "#");
+    var cont = 0;
+    
+    document.onmouseover = function() {
+        window.innerDocClick = true;
+    }
 
-    if(localStorage.getItem("cont") == 'NaN' || localStorage.getItem("cont") == null){
+    document.onmouseleave = function() {
+        window.innerDocClick = false;
+    }
+
+    window.onhashchange = function() {
+        if (window.innerDocClick) {
+            if(window.location.href.indexOf('#') > -1){
+                $("#modal").fadeIn();
+            }else{
+                $("#modal").fadeIn();
+                history.pushState(null, "", "");
+            }
+        } else {
+            
+        }
+    }
+
+    $(window).on('popstate', function(e){
+        if(cont == 1){
+            $("#modal").fadeOut();
+        }
+        if(cont == 2){
+            history.back();
+        }
+        cont++;
+    });
+ 
+    /* if(localStorage.getItem("cont") == 'NaN' || localStorage.getItem("cont") == null){
         localStorage.setItem("cont", 0);
         console.log('aqui vale 0');
     }else if(localStorage.getItem("cont") == 1){
@@ -707,7 +739,7 @@
         }else{
             history.back();
         }
-    }
+    } */
 
     </script>
     
